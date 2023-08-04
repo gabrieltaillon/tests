@@ -1,0 +1,24 @@
+name: Backport merged PR commit to foxy-fortress branch and create a PR
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      
+jobs:
+  release_pull_request:
+    runs-on: ubuntu-20.04
+    name: release_pull_request
+    steps:
+    - name: checkout
+      uses: actions/checkout@v1
+    - name: Create PR to foxy-fortress
+      uses: wgkassem/github-action-cherry-pick@master
+      with:
+        pr_branch: 'foxy-fortress'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GPG_KEY: ${{ secrets.DETRABOT_GPG_KEY }}
+        GPG_PASSPHRASE: ${{ secrets.DETRABOT_GPG_PASSPHRASE }}
+        DRY_RUN: false
