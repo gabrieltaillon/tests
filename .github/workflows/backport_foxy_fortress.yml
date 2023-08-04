@@ -14,7 +14,7 @@ jobs:
     - name: checkout deepx_ci
       uses: actions/checkout@v3
       with:
-        repository: DeepX-inc/deepx_ci
+        repository: DeepX-inc/deepx_ci@main
         path: deepx_ci
         ref: "v0.6.0"
         ssh-key: ${{ secrets.DETRABOT_SECRET }}
