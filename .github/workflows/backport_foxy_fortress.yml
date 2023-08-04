@@ -16,7 +16,7 @@ jobs:
       with:
         repository: DeepX-inc/deepx_ci
         path: deepx_ci
-        ref: "main"
+        ref: 'v0.6.0'
         ssh-key: ${{ secrets.DETRABOT_SECRET }}
     - name: Create PR to foxy-fortress
       uses: ./deepx_ci/actions/cherry-pick@feature/cherry_pick
