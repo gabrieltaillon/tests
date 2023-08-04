@@ -12,9 +12,11 @@ jobs:
     name: release_pull_request
     steps:
     - name: checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v3
+      with:
+        repository: DeepX-inc/deepx_ci
     - name: Create PR to foxy-fortress
-      uses: DeepX-inc/deepx_ci/actions/cherry-pick@feature/cherry_pick
+      uses: ./deepx_ci/actions/cherry-pick@feature/cherry_pick
       with:
         pr_branch: 'foxy-fortress'
       env:
